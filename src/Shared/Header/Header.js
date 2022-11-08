@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const menuItem = (
+  const navButtons = (
     <>
     <li>
       <Link className="font-semibold" to="/">
@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-blue-700 mb-12 mt-12 h-12">
+      <div className="navbar bg-blue-700 mb-10 mt-10 h-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -63,7 +63,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {menuItem}
+              {navButtons}
             </ul>
           </div>
           <Link href="/" className="btn btn-ghost normal-case text-xl">
@@ -71,7 +71,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">{menuItem}</ul>
+          <ul className="menu menu-horizontal p-0">{navButtons}</ul>
         </div>
         <div className="navbar-end">
           <button className="btn btn-outline btn-warning">Appoinment</button>
