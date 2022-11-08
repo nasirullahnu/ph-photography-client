@@ -10,7 +10,7 @@ const AllServicesCard = ({ service }) => {
         <img src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title text-yellow-400">
           {title}
           <div className="badge badge-secondary">
             {ratings} <FaStar></FaStar>

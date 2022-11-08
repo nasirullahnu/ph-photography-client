@@ -10,7 +10,7 @@ const HomeServicesCard = ({ service }) => {
         <img src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title text-yellow-400">
           {title}
           <div className="badge badge-secondary">{ratings} <FaStar></FaStar></div>
         </h2>
@@ -20,9 +20,6 @@ const HomeServicesCard = ({ service }) => {
             <button className="btn">{`$ ${price}`}</button>
           </div>
           <div>
-            {/* <button className="btn btn-outline btn-info">
-                <Link to={}>Details</Link>
-            </button> */}
             <Link to={`/details/${_id}`}>
                 <button className="btn btn-outline btn-info">Details</button>
             </Link>
