@@ -22,8 +22,9 @@ const ReviewArea = ({ serviceDetails }) => {
       servicePrice: price,
       reviewerName: user.displayName,
       reviewerImg: user.photoURL,
-      reviewerEmail: user.email,
-      reviewerUid : user.uid
+      email: user.email,
+      reviewerUid : user.uid,
+      comment : comment
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -37,7 +38,7 @@ const ReviewArea = ({ serviceDetails }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("order placed succesfully");
+          alert("comment added succesfully");
           form.reset();
         }
       })
@@ -52,6 +53,7 @@ const ReviewArea = ({ serviceDetails }) => {
           name="comment"
           placeholder="Type here"
           className="input input-bordered input-warning w-full max-w-xs mr-2"
+          required
         />
         {user?.uid ? (
           <input

@@ -28,7 +28,7 @@ const Header = () => {
     {
       user?.uid?
       <li>
-      <Link className="font-semibold" to="/">
+      <Link className="font-semibold" to="/reviews">
         My Reviews
       </Link>
       <Link className="font-semibold" to="/">
