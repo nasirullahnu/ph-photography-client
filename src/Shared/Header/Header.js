@@ -81,7 +81,7 @@ const Header = () => {
           <Link to='/login'>
               <button className="btn">Login</button>
           </Link>
-          <button className="btn btn-outline btn-warning">{user?.profile}</button>
+          <button className="btn btn-outline btn-warning">{user?.email}</button>
         </div>
       </div>
     </div>
