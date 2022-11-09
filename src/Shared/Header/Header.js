@@ -93,7 +93,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           
-          <button className="btn btn-outline btn-warning">{user?.displayName}</button>
+          <button className="btn btn-outline btn-warning">{user?.email}</button>
           {
             user?.uid?
             <div className="avatar">

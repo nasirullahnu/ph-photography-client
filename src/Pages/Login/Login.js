@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { googleLogin } = useContext(AuthContext);
+  const { googleLogin, logIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
 
   // login with email and password
@@ -15,12 +15,12 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    // logIn(email, password)
-    // .then(result => {
-    //     const user = result.user
-    //     console.log(user)
-    // })
-    // .catch(error => console.error(error))
+    logIn(email, password)
+    .then(result => {
+        const user = result.user
+        console.log(user)
+    })
+    .catch(error => console.error(error))
   };
 
   // login with google
