@@ -5,7 +5,13 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {})
+    .catch(error => console.error(error))
+}
 
   const navButtons = (
     <>
@@ -47,11 +53,6 @@ const Header = () => {
         </Link>
       </li>
     )} */}
-    <li>
-      <Link className="font-semibold" to="/">
-        user?.email
-      </Link>
-    </li>
   </>
   );
 
@@ -94,10 +95,10 @@ const Header = () => {
           
           <button className="btn btn-outline btn-warning">{user?.displayName}</button>
           {
-            user?.photoURL?
+            user?.uid?
             <div className="avatar">
-              <Link to='/login'>
-                <button className="btn mr-2">Log Out</button>
+              <Link>
+                <button onClick={handleLogOut} className="btn mr-2">Log Out</button>
               </Link>
             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img alt="profile" src={user?.photoURL}/>
