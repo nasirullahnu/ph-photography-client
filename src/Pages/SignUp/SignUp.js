@@ -66,6 +66,7 @@ const handleUpdateUserProfile = (name, photoURL) => {
                 name="name"
                 placeholder="name"
                 className="input input-bordered"
+                required
               />
             </div>
 
@@ -90,6 +91,7 @@ const handleUpdateUserProfile = (name, photoURL) => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -101,6 +103,7 @@ const handleUpdateUserProfile = (name, photoURL) => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
               <label className="label">
                 <Link to="/register" className="label-text-alt link link-hover text-black">

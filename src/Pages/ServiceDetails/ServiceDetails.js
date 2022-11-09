@@ -1,11 +1,14 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import ReviewArea from "../../ReviewComponents/ReviewArea/ReviewArea";
 import ServiceReview from "../../ReviewComponents/ServiceReview/ServiceReview";
 
 const ServiceDetails = () => {
-  const { _id, title, img, price, ratings, description, orders, photographer } =
+  const { _id, title, img, price, ratings, description, orders, photographer, service_id } =
     useLoaderData();
+    const serviceDetails = {_id, title, img, price, ratings, description, orders, service_id}
+    
   return (
     <div>
       <h1 className="text-4xl my-6">{title}</h1>
@@ -115,6 +118,14 @@ const ServiceDetails = () => {
         <div className="my-6"> 
             <h1 className="text-3xl font-semibold text-yellow-400 px-6">Customer Reviews</h1>
             <ServiceReview></ServiceReview>
+        </div>
+
+        {/* review text area  */}
+        {/* review text area  */}
+        {/* review text area  */}
+        <div className="my-6">
+            <h2 className="px-6">Add a Comment</h2>
+             <ReviewArea serviceDetails={serviceDetails}></ReviewArea>
         </div>
 
     </div>
