@@ -18,14 +18,16 @@ const ServiceDetails = () => {
           <div>
             <h1 className="text-2xl font-bold">{title}</h1>
             <p className="py-6">{description}</p>
-            <div className="justify-end">
-              <button className="btn">Book Now</button>
-              <div className="badge badge-secondary">
+            <div className="align-items-center">
+              <button className="btn mr-2">Book Now</button>
+              <div className="badge badge-secondary mr-2">
                 {ratings} <FaStar></FaStar>
               </div>
-              <div className="badge badge-secondary">{`$ ${price}`}</div>
-              <div className="badge badge-secondary">{`orders : ${orders}`}</div>
+              <div className="badge badge-secondary mr-2">{`$ ${price}`}</div>
+              <div className="badge badge-secondary mr-2">{`orders : ${orders}`}</div>
 
+
+                {/* author modal  */}
               {/* modal button  */}
               <label htmlFor="my-modal-3" className="btn">
                 See Photographer
@@ -40,7 +42,7 @@ const ServiceDetails = () => {
                   >
                     ✕
                   </label>
-                  <h3 className="text-lg font-bold">{photographer.name}</h3>
+                  <h3 className="text-lg font-bold">{title}</h3>
                   <div className="flex justify-center align-items-center my-4">
                         {/* author image  */}
                         <div className="avatar mx-2">
