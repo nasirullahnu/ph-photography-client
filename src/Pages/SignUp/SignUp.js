@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const {googleLogin, createUser} = useContext(AuthContext)
+    const {googleLogin, createUser, updateUserProfile} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
 
 
@@ -25,15 +25,28 @@ const handleSubmit = event => {
     event.preventDefault()
     const form = event.target
     const name = form.name.value
+    const photoURL = form.photoURL.value;
     const email = form.email.value
     const password = form.password.value
-    console.log(name, email, password)
+    console.log(name, email, password, photoURL)
     createUser(email, password)
     .then(result => {
         const user = result.user
         console.log(user)
+        handleUpdateUserProfile(name, photoURL)
     })
     .catch(e => console.error(e))
+}
+
+// update user photo and name 
+const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+        displayName : name,
+        photoURL : photoURL
+    }
+    updateUserProfile(profile)
+    .then(()=> {})
+    .catch(error => console.error(error))
 }
 
     return (
@@ -55,6 +68,19 @@ const handleSubmit = event => {
                 className="input input-bordered"
               />
             </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-black">Photo URL</span>
+              </label>
+              <input
+                type="photoURL"
+                name="photoURL"
+                placeholder="photoURL"
+                className="input input-bordered"
+              />
+            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Email</span>
@@ -90,9 +116,9 @@ const handleSubmit = event => {
                 Google
             </button>
           <p className="text-center text-black">
-            New to this site?{" "}
-            <Link className="text-orange-500 font-bold" to="/signup">
-              Signup
+            Already Signed Up?{" "}
+            <Link className="text-orange-500 font-bold" to="/login">
+              Login
             </Link>
           </p>
         </div>
