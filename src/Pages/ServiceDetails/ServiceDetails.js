@@ -7,7 +7,7 @@ const ServiceDetails = () => {
     useLoaderData();
   return (
     <div>
-      <h1 className="text-4xl">{title}</h1>
+      <h1 className="text-4xl my-6">{title}</h1>
       <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <img

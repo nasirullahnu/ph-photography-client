@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+
+  const {user} = useContext(AuthContext)
+
   const navButtons = (
     <>
     <li>
@@ -74,7 +78,10 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0">{navButtons}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-outline btn-warning">Appoinment</button>
+          <Link to='/login'>
+              <button className="btn">Login</button>
+          </Link>
+          <button className="btn btn-outline btn-warning">{user?.profile}</button>
         </div>
       </div>
     </div>
