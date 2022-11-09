@@ -36,10 +36,7 @@ const Login = () => {
 
   return (
     <div className="hero w-full my-20">
-      <div className="hero-content grid gap-15 md:grid-cols-2 flex-col lg:flex-row">
-        <div className="text-center lg:text-left">
-          {/* <img className="w-3/4" src={img} alt="" /> */}
-        </div>
+      <div className="hero-content ">
         <div className="card flex-shrink-0 py-5 w-full shadow-2xl bg-white">
           <h1 className="text-5xl font-bold text-center text-black">
             Login now!
@@ -67,7 +64,7 @@ const Login = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <Link to="/register" className="label-text-alt link link-hover">
+                <Link to="/register" className="label-text-alt link link-hover text-black">
                   Forgot password?
                 </Link>
               </label>

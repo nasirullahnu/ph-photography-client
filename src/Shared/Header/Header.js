@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
@@ -13,6 +14,21 @@ const Header = () => {
         Home
       </Link>
     </li>
+    {
+      user?.uid?
+      <li>
+      <Link className="font-semibold" to="/">
+        My Reviews
+      </Link>
+      <Link className="font-semibold" to="/">
+        Add Services
+      </Link>
+    </li>
+    :
+    <Link className="font-semibold" to="/login">
+        Login
+      </Link>
+    }
 
 
     {/* {user?.email ? (
@@ -31,9 +47,6 @@ const Header = () => {
         </Link>
       </li>
     )} */}
-
-
-
     <li>
       <Link className="font-semibold" to="/">
         user?.email
@@ -78,10 +91,26 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0">{navButtons}</ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login'>
-              <button className="btn">Login</button>
-          </Link>
-          <button className="btn btn-outline btn-warning">{user?.email}</button>
+          
+          <button className="btn btn-outline btn-warning">{user?.displayName}</button>
+          {
+            user?.photoURL?
+            <div className="avatar">
+              <Link to='/login'>
+                <button className="btn mr-2">Log Out</button>
+              </Link>
+            <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <img alt="profile" src={user?.photoURL}/>
+            </div>
+          </div>
+          :
+          <div>
+            <Link to='/login' className="mr-2">
+                <button className="btn">Log IN</button>
+            </Link>
+            <FaUser></FaUser>
+          </div>
+          }
         </div>
       </div>
     </div>
