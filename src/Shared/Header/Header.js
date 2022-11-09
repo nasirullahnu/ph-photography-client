@@ -20,6 +20,11 @@ const Header = () => {
         Home
       </Link>
     </li>
+    <li>
+      <Link className="font-semibold" to="/">
+        Blog
+      </Link>
+    </li>
     {
       user?.uid?
       <li>
@@ -31,28 +36,12 @@ const Header = () => {
       </Link>
     </li>
     :
-    <Link className="font-semibold" to="/login">
+    <li>
+      <Link className="font-semibold" to="/login">
         Login
       </Link>
+    </li>
     }
-
-
-    {/* {user?.email ? (
-      <li>
-        <Link className="font-semibold" to="/orders">
-          See Orders
-        </Link>
-        <Link className="font-semibold" to="/">
-          Log Out
-        </Link>
-      </li>
-    ) : (
-      <li>
-        <Link className="font-semibold" to="/login">
-          Login
-        </Link>
-      </li>
-    )} */}
   </>
   );
 
@@ -100,16 +89,20 @@ const Header = () => {
               <Link>
                 <button onClick={handleLogOut} className="btn mr-2">Log Out</button>
               </Link>
-            <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img alt="profile" src={user?.photoURL}/>
-            </div>
+              <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img alt="profile" src={user?.photoURL}/>
+              </div>
           </div>
           :
-          <div>
+          <div className="flex justify-center align-items-center">
             <Link to='/login' className="mr-2">
                 <button className="btn">Log IN</button>
             </Link>
-            <FaUser></FaUser>
+            <div className="avatar">
+              <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <FaUser className="ml-4 mt-4"></FaUser>
+              </div>
+          </div>
           </div>
           }
         </div>

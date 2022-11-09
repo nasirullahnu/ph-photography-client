@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import ServiceReview from "../../ReviewComponents/ServiceReview/ServiceReview";
 
 const ServiceDetails = () => {
   const { _id, title, img, price, ratings, description, orders, photographer } =
@@ -105,6 +106,17 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
+
+
+      {/* reviews  */}
+      {/* reviews  */}
+      {/* reviews  */}
+      {/* reviews  */}
+        <div className="my-6"> 
+            <h1 className="text-3xl font-semibold text-yellow-400 px-6">Customer Reviews</h1>
+            <ServiceReview></ServiceReview>
+        </div>
+
     </div>
   );
 };
