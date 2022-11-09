@@ -8,7 +8,7 @@ const ServiceDetails = () => {
   const { _id, title, img, price, ratings, description, orders, photographer, service_id } =
     useLoaderData();
     const serviceDetails = {_id, title, img, price, ratings, description, orders, service_id}
-    
+
   return (
     <div>
       <h1 className="text-4xl my-6">{title}</h1>
@@ -117,7 +117,7 @@ const ServiceDetails = () => {
       {/* reviews  */}
         <div className="my-6"> 
             <h1 className="text-3xl font-semibold text-yellow-400 px-6">Customer Reviews</h1>
-            <ServiceReview></ServiceReview>
+            <ServiceReview serviceDetails={serviceDetails}></ServiceReview>
         </div>
 
         {/* review text area  */}
