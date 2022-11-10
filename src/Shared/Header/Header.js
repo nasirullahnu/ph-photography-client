@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import logo from '../../assets/logo/logo.png'
 
 const Header = () => {
 
@@ -74,7 +75,7 @@ const Header = () => {
             </ul>
           </div>
           <Link href="/" className="btn btn-ghost normal-case text-xl">
-            {/* <img src={logo} alt="" /> */}
+            <img className="w-12" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
