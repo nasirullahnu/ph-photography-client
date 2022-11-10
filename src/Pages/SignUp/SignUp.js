@@ -2,11 +2,13 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
 
     const {googleLogin, createUser, updateUserProfile} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
+    useTitle('Register')
 
 
     // login with google
