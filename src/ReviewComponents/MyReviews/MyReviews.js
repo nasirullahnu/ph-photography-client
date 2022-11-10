@@ -17,6 +17,26 @@ const MyReviews = () => {
         });
       }, [user?.email]);
 
+
+      const handleDelete = (id) => {
+        console.log(id);
+        const proced = window.confirm("Confirm Delete?");
+        if (proced) {
+          fetch(`http://localhost:5000/reviews/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if(data.deleteCount > 0){
+                alert ('Review Deleted!!!')
+                const remaining = reviews.filter(ord => ord._id !== id);
+                setReview(remaining)
+              }
+            });
+        }
+      };
+
     return (
 
         <div>
@@ -28,6 +48,7 @@ const MyReviews = () => {
                 reviews.map(review => <MyReviewCard
                 key={review._id}
                 review={review}
+                handleDelete={handleDelete}
                 ></MyReviewCard>)
             }
         </div>

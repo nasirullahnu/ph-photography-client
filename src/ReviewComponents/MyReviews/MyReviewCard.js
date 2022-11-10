@@ -1,7 +1,7 @@
 import React from "react";
 
-const MyReviewCard = ({ review }) => {
-  const { serviceTitle, comment, reviewerImg, reviewerName } = review;
+const MyReviewCard = ({ review, handleDelete }) => {
+  const {_id, serviceTitle, comment, reviewerImg, reviewerName } = review;
   return (
     <div className="grid grid-cols-3 p-6 my-1 border-solid border-2 border-sky-500">
       <div className="w-3/12">
@@ -22,7 +22,7 @@ const MyReviewCard = ({ review }) => {
 
       <div className="w-3/12 flex">
         <button className="btn btn-ghost btn-xs">edit</button>
-        <button className="btn btn-ghost btn-xs">delete</button>
+        <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">delete</button>
       </div>
     </div>
   );
