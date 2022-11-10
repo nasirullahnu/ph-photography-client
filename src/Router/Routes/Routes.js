@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path : '/details/:id',
                 element : <ServiceDetails></ServiceDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader : ({params}) => fetch(`https://ph-server.vercel.app/details/${params.id}`)
             },
             {
                 path : '/login',

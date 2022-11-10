@@ -1,16 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const ServiceReview = ({serviceDetails}) => {
-  const [reviews, setReviews] = useState([])
+const ServiceReview = ({ serviceDetails }) => {
+  const [reviews, setReviews] = useState([]);
   const { _id, title, img, price, ratings, description, orders, service_id } =
     serviceDetails;
 
-    useEffect(() => {
-      fetch(`http://localhost:5000/reviews?_id=${_id}`)
-        .then((res) => res.json())
-        .then((data) => setReviews(data));
-    }, [_id]);
+  useEffect(() => {
+    fetch(`https://ph-server.vercel.app/reviews?_id=${_id}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, [_id]);
 
   return (
     <div className="grid grid-cols-3 p-6 my-1 border-solid border-2 border-sky-500">
@@ -26,7 +26,7 @@ const ServiceReview = ({serviceDetails}) => {
       </div>
 
       <div className="w-6/12">
-        <p className="text-yellow-400">{reviews.length}</p>
+        <p className="text-yellow-400">{title}</p>
       </div>
 
       <div className="w-5/12 flex">

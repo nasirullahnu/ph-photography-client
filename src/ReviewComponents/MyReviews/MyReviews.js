@@ -9,7 +9,7 @@ const MyReviews = () => {
     useTitle('My Reviews')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://ph-server.vercel.app/reviews?email=${user?.email}`)
           .then(res => res.json())
           .then(data => {
             console.log(data)
@@ -22,7 +22,7 @@ const MyReviews = () => {
         console.log(id);
         const proced = window.confirm("Confirm Delete?");
         if (proced) {
-          fetch(`http://localhost:5000/reviews/${id}`, {
+          fetch(`https://ph-server.vercel.app/reviews/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
