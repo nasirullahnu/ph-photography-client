@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import ReviewArea from "../../ReviewComponents/ReviewArea/ReviewArea";
 import ServiceReview from "../../ReviewComponents/ServiceReview/ServiceReview";
 
 const ServiceDetails = () => {
+    const [reviews, setReviews] = useState([])
   const { _id, title, img, price, ratings, description, orders, photographer, service_id } =
     useLoaderData();
+    console.log(_id)
     const serviceDetails = {_id, title, img, price, ratings, description, orders, service_id}
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?_id=${_id}`)
+          .then((res) => res.json())
+          .then((data) => setReviews(data));
+      }, [_id]);
+    
 
   return (
     <div>
@@ -117,7 +126,7 @@ const ServiceDetails = () => {
       {/* reviews  */}
         <div className="my-6"> 
             <h1 className="text-3xl font-semibold text-yellow-400 px-6">Customer Reviews</h1>
-            <ServiceReview serviceDetails={serviceDetails}></ServiceReview>
+            <ServiceReview></ServiceReview>
         </div>
 
         {/* review text area  */}

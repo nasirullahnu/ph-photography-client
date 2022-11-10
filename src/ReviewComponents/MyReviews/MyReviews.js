@@ -18,8 +18,10 @@ const MyReviews = () => {
     return (
 
         <div>
-            <h1 className='text-4xl'>Your Reviews</h1>
-            <h2>You added {reviews.length} review</h2>
+            <h1 className='text-3xl'>Your Reviews</h1>
+            <h2 className='text-5xl text-yellow-400'>You added {reviews.length} review</h2>
+            
+            
             {
                 reviews.map(review => <MyReviewCard
                 key={review._id}
