@@ -1,23 +1,42 @@
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import ReviewArea from "../../ReviewComponents/ReviewArea/ReviewArea";
 import ServiceReview from "../../ReviewComponents/ServiceReview/ServiceReview";
 
 const ServiceDetails = () => {
-  useTitle('Details')
-    
-  const { _id, title, img, price, ratings, description, orders, photographer, service_id } =
-    useLoaderData();
-    console.log(_id)
-    const serviceDetails = {_id, title, img, price, ratings, description, orders, service_id}
-    
-    
-    
+  useTitle("Details");
+
+  const {
+    _id,
+    title,
+    img,
+    price,
+    ratings,
+    description,
+    orders,
+    photographer,
+    service_id,
+  } = useLoaderData();
+  console.log(_id);
+  const serviceDetails = {
+    _id,
+    title,
+    img,
+    price,
+    ratings,
+    description,
+    orders,
+    service_id,
+  };
 
   return (
     <div>
-      <h1 className="text-4xl my-6">{title}</h1>
+      <div className="flex justify-center">
+        <div>
+          <h1 className="text-4xl my-6">{title}</h1>
+        </div>
+      </div>
       <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <img
@@ -29,6 +48,9 @@ const ServiceDetails = () => {
             <h1 className="text-2xl font-bold">{title}</h1>
             <p className="py-6">{description}</p>
             <div className="align-items-center">
+              <Link to='/all'>
+                <button className="btn mr-2">Back</button>
+              </Link>
               <button className="btn mr-2">Book Now</button>
               <div className="badge badge-secondary mr-2">
                 {ratings} <FaStar></FaStar>
@@ -36,8 +58,7 @@ const ServiceDetails = () => {
               <div className="badge badge-secondary mr-2">{`$ ${price}`}</div>
               <div className="badge badge-secondary mr-2">{`orders : ${orders}`}</div>
 
-
-                {/* author modal  */}
+              {/* author modal  */}
               {/* modal button  */}
               <label htmlFor="my-modal-3" className="btn">
                 See Photographer
@@ -54,22 +75,21 @@ const ServiceDetails = () => {
                   </label>
                   <h3 className="text-lg font-bold">{title}</h3>
                   <div className="flex justify-center align-items-center my-4">
-                        {/* author image  */}
-                        <div className="avatar mx-2">
-                            <div className="w-24 rounded">
-                            <img src={photographer.img} alt="author" />
-                            </div>
-                        </div>
-                        {/* author info  */}
-                        <div>
-                            <p>{`Name : ${photographer.name}`}</p>
-                            <p>{`Age : ${photographer.age}`}</p>
-                            <p>{`Experience : ${photographer.experience} yrs`}</p>
-                            <div className="badge badge-secondary">
-                                {ratings} <FaStar></FaStar>
-                            </div>
-
-                        </div>
+                    {/* author image  */}
+                    <div className="avatar mx-2">
+                      <div className="w-24 rounded">
+                        <img src={photographer.img} alt="author" />
+                      </div>
+                    </div>
+                    {/* author info  */}
+                    <div>
+                      <p>{`Name : ${photographer.name}`}</p>
+                      <p>{`Age : ${photographer.age}`}</p>
+                      <p>{`Experience : ${photographer.experience} yrs`}</p>
+                      <div className="badge badge-secondary">
+                        {ratings} <FaStar></FaStar>
+                      </div>
+                    </div>
                   </div>
 
                   {/* author social icons */}
@@ -116,24 +136,24 @@ const ServiceDetails = () => {
         </div>
       </div>
 
+      {/* reviews  */}
+      {/* reviews  */}
+      {/* reviews  */}
+      {/* reviews  */}
+      <div className="my-6">
+        <h1 className="text-3xl font-semibold text-yellow-400 px-6">
+          Customer Reviews
+        </h1>
+        <ServiceReview serviceDetails={serviceDetails}></ServiceReview>
+      </div>
 
-      {/* reviews  */}
-      {/* reviews  */}
-      {/* reviews  */}
-      {/* reviews  */}
-        <div className="my-6"> 
-            <h1 className="text-3xl font-semibold text-yellow-400 px-6">Customer Reviews</h1>
-            <ServiceReview serviceDetails={serviceDetails}></ServiceReview>
-        </div>
-
-        {/* review text area  */}
-        {/* review text area  */}
-        {/* review text area  */}
-        <div className="my-6">
-            <h2 className="px-6">Add a Comment</h2>
-             <ReviewArea serviceDetails={serviceDetails}></ReviewArea>
-        </div>
-
+      {/* review text area  */}
+      {/* review text area  */}
+      {/* review text area  */}
+      <div className="my-6">
+        <h2 className="px-6">Add a Comment</h2>
+        <ReviewArea serviceDetails={serviceDetails}></ReviewArea>
+      </div>
     </div>
   );
 };

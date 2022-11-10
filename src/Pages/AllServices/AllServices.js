@@ -27,14 +27,14 @@ const AllServices = () => {
       </div>
       <div className="my-8 flex justify-center">
         <div className="btn-group ">
-          <button className="btn btn-active">1</button>
-          <button className="btn">2</button>
-          <button className="btn">3</button>
-          <button className="btn">4</button>
-          <button className="btn">5</button>
-          <button className="btn">6</button>
-          <button className="btn">7</button>
-          <button className="btn">8</button>
+          <button className="btn btn-active text-yellow-400">1</button>
+          <button className="btn text-yellow-400">2</button>
+          <button className="btn text-yellow-400">3</button>
+          <button className="btn text-yellow-400">4</button>
+          <button className="btn text-yellow-400">5</button>
+          <button className="btn text-yellow-400">6</button>
+          <button className="btn text-yellow-400">7</button>
+          <button className="btn text-yellow-400">8</button>
         </div>
       </div>
     </div>
