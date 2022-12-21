@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import HomeServicesCard from "./HomeServicesCard";
 
 const HomeServices = () => {
   const [services, setServices] = useState([]);
+  const {loading} = useContext(AuthContext)
 
   useEffect(() => {
     fetch("https://ph-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data.serviceHome));
   }, []);
+
+  if(loading){
+    return <h1 className="text-2xl text-yellow-400">Loading.....</h1>
+  }
 
   return (
     <div>

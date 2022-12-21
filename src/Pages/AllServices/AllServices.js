@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import AllServicesCard from "./AllServicesCard";
 
 const AllServices = () => {
   const [allServices, setAllServices] = useState([]);
   useTitle("All Services");
+  const {loading} = useContext(AuthContext)
 
   useEffect(() => {
     fetch("https://ph-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setAllServices(data.survices));
   }, []);
+
+  if(loading){
+    return <h1 className="text-2xl text-yellow-400">Loading.....</h1>
+  }
 
   return (
     <div>

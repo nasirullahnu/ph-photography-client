@@ -3,9 +3,17 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import 'react-photo-view/dist/react-photo-view.css';
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const AllServicesCard = ({ service }) => {
   const { _id, title, img, price, ratings, description } = service;
+  const {loading} = useContext(AuthContext)
+
+  if(loading){
+    return <h1 className="text-2xl text-yellow-400">Loading.....</h1>
+  }
+
   return (
     <div className="card w-80 bg-sky-800 shadow-xl my-10">
 
